@@ -54,7 +54,7 @@ module Ronin
           word.capitalize
         }.join(' ')
 
-        @dirname = @name.sub(/[_\-\s]+/,'_').downcase
+        @dirname = File.basename(@path).sub(/[_\-\s]+/,'_').downcase
       end
 
     end
