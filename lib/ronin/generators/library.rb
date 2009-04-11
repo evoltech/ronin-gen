@@ -34,22 +34,16 @@ module Ronin
       # Project title
       attr_accessor :title
 
-      # Project license
-      attr_accessor :license
-
       #
       # Creates a new Library generator with the given _options_.
       #
       # _options_ may contain the following keys:
       # <tt>:name</tt>:: Name of the project.
       # <tt>:title</tt>:: Title of the project.
-      # <tt>:license</tt>:: The license the project is under.
-      #                     Defaults to <tt>:gpl2</tt>.
       #
       def initialize(options={})
         @name = options[:name]
         @title = options[:title]
-        @license = (options[:license] || :gpl2)
       end
 
       protected
