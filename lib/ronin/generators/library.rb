@@ -54,8 +54,8 @@ module Ronin
           word.capitalize
         }.join(' ')
 
+        @dir_name = @project.gsub(/[_\-\s]+/,'_').downcase.gsub(/^ronin_/,'')
         @module_name = @project.to_const_string
-        @dir_name = @module_name.to_const_path
       end
 
     end
