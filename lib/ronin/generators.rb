@@ -22,5 +22,6 @@
 
 require 'ronin/generators/generator'
 require 'ronin/generators/dir_generator'
+require 'ronin/generators/library'
 require 'ronin/generators/platform'
 require 'ronin/generators/version'
