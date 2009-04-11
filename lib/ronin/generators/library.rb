@@ -49,7 +49,7 @@ module Ronin
       protected
 
       def generate!
-        @name ||= File.basename(@path).gsub(/[_\s]+/,'-').downcase
+        @name ||= File.basename(@path).gsub(/[_\s-]+/,'-').downcase
         @title ||= @name.split(/[_\-\s]+/).map { |word|
           word.capitalize
         }.join(' ')
