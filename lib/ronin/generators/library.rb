@@ -29,7 +29,7 @@ module Ronin
     class Library < DirGenerator
 
       # Project name of the library
-      attr_accessor :name
+      attr_accessor :project
 
       # Project title
       attr_accessor :title
@@ -38,23 +38,24 @@ module Ronin
       # Creates a new Library generator with the given _options_.
       #
       # _options_ may contain the following keys:
-      # <tt>:name</tt>:: Name of the project.
+      # <tt>:project</tt>:: Name of the project.
       # <tt>:title</tt>:: Title of the project.
       #
       def initialize(options={})
-        @name = options[:name]
+        @project = options[:project]
         @title = options[:title]
       end
 
       protected
 
       def generate!
-        @name ||= File.basename(@path).gsub(/[_\s-]+/,'-').downcase
-        @title ||= @name.split(/[_\-\s]+/).map { |word|
+        @project ||= File.basename(@path).gsub(/[_\-\s]+/,'-').downcase
+        @title ||= @project.split(/[_\-\s]+/).map { |word|
           word.capitalize
         }.join(' ')
 
-        @dirname = File.basename(@path).gsub(/[_\-\s]+/,'_').downcase
+        @module_name = @project.to_const_string
+        @dir_name = @module_name.to_const_path
       end
 
     end
